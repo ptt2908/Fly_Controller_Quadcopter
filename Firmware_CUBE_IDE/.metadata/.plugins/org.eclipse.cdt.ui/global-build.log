@@ -1,0 +1,43 @@
+10:11:16 **** Incremental Build of configuration Debug for project DA_F4_ide ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:680:9: warning: this 'while' clause does not guard... [-Wmisleading-indentation]
+  680 |         while ( abs(__HAL_TIM_GET_COUNTER(&htim1) - loop_timer) < 4000 ) ;
+      |         ^~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:407,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:1283:57: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'while'
+ 1283 | #define __HAL_TIM_SET_COUNTER(__HANDLE__, __COUNTER__)  ((__HANDLE__)->Instance->CNT = (__COUNTER__))
+      |                                                         ^
+../Core/Src/main.c:681:26: note: in expansion of macro '__HAL_TIM_SET_COUNTER'
+  681 |                          __HAL_TIM_SET_COUNTER(&htim1,0);
+      |                          ^~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "DA_F4_ide.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\DA\DA_F4_ide\DA_F4_ide\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DA_F4_ide.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: DA_F4_ide.elf has a LOAD segment with RWX permissions
+Finished building target: DA_F4_ide.elf
+ 
+arm-none-eabi-size  DA_F4_ide.elf 
+arm-none-eabi-objdump -h -S DA_F4_ide.elf  > "DA_F4_ide.list"
+   text	   data	    bss	    dec	    hex	filename
+  43664	    128	   3752	  47544	   b9b8	DA_F4_ide.elf
+Finished building: default.size.stdout
+ 
+Finished building: DA_F4_ide.list
+ 
+10:11:28 **** Incremental Build of configuration Debug for project DA_F4_ide ****
+make -j8 all 
+arm-none-eabi-size  DA_F4_ide.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43664	    128	   3752	  47544	   b9b8	DA_F4_ide.elf
+Finished building: default.size.stdout
+ 
+10:11:44 **** Incremental Build of configuration Debug for project DA_F4_ide ****
+make -j8 all 
+arm-none-eabi-size  DA_F4_ide.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43664	    128	   3752	  47544	   b9b8	DA_F4_ide.elf
+Finished building: default.size.stdout
+ 
